@@ -68,14 +68,14 @@ export default function TimeLine() {
                     onClick={handleNext}
                     sx={{ mt: 1, mr: 1 }}
                   >
-                    {index === steps.length - 1 ? '끝' : '계속'}
+                    {index === steps.length - 1 ? '끝' : '다음'}
                   </Button>
                   <Button
                     disabled={index === 0}
                     onClick={handleBack}
                     sx={{ mt: 1, mr: 1 }}
                   >
-                    Back
+                    뒤로
                   </Button>
                 </div>
               </Box>
@@ -85,9 +85,9 @@ export default function TimeLine() {
       </Stepper>
       {activeStep === steps.length && (
         <Paper square elevation={0} sx={{ p: 3 }}>
-          <Typography>All steps completed - you&apos;re finished</Typography>
+          <Typography>이때까지의 저의 성장과정 입니다.</Typography>
           <Button onClick={handleReset} sx={{ mt: 1, mr: 1 }}>
-            Reset
+            다시보기
           </Button>
         </Paper>
       )}

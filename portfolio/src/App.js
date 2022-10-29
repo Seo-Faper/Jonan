@@ -33,18 +33,17 @@ export default function App() {
         <Typography variant="h2" component="h1" gutterBottom>
           서종찬의 Portfolio
         </Typography>
-        <Typography variant="h5" component="h2" gutterBottom>
-          {'프론트엔드 개발자가 되고 싶습니다.'}
-        </Typography>
       </Container>
-      <Container maxWidth="85vh">
+      <Container component="article" sx={{ mt: 5, mb: 4 }} maxWidth="sm">
       <CssBaseline />
         <TimeLine/>
-     
+      <CssBaseline/>
+        <GridPage/>
       </Container>
       <Box
         component="footer"
         sx={{
+          
           py: 3,
           px: 2,
           mt: 'auto',

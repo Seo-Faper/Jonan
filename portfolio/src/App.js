@@ -31,7 +31,7 @@ export default function App() {
       <CssBaseline />
       <Container component="main" sx={{ mt: 8, mb: 2 }} maxWidth="sm">
         <Typography variant="h2" component="h1" gutterBottom>
-          서종찬의 Portfolio
+          seo-faper's Portfolio
         </Typography>
       </Container>
       <Container component="article" sx={{ mt: 5, mb: 4 }} maxWidth="sm">

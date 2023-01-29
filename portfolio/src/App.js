@@ -4,8 +4,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
-import GridPage from './GridPage';
-import TimeLine from './TimeLine';
+
 function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary">
@@ -29,16 +28,11 @@ export default function App() {
       }}
     >
       <CssBaseline />
-      <Container component="main" sx={{ mt: 8, mb: 2 }} maxWidth="sm">
-        <Typography variant="h2" component="h1" gutterBottom>
-          seo-faper's Portfolio
-        </Typography>
-      </Container>
+      
       <Container component="article" sx={{ mt: 5, mb: 4 }} maxWidth="sm">
       <CssBaseline />
-        <TimeLine/>
       <CssBaseline/>
-        <GridPage/>
+
       </Container>
       <Box
         component="footer"

@@ -1,0 +1,10 @@
+#HeroCard{
+    position: absolute;
+    display: grid;
+}
+#HeroCase{
+    color: azure;
+}
+#HeroProfile{
+    display: block;
+}

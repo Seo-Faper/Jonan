@@ -4,6 +4,9 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
+import OffcanvasExample from './component/OffcanvasExample';
+import ControlledTabsExample from './component/ControlledTabsExample';
+
 
 function Copyright() {
   return (
@@ -20,6 +23,8 @@ function Copyright() {
 
 export default function App() {
   return (
+    <div>
+    
     <Box
       sx={{
         display: 'flex',
@@ -27,15 +32,14 @@ export default function App() {
         minHeight: '100vh',
       }}
     >
+      <OffcanvasExample></OffcanvasExample>
       <CssBaseline />
-      
-      <Container component="article" sx={{ mt: 5, mb: 4 }} maxWidth="sm">
-      <CssBaseline />
-      <CssBaseline/>
-
+      <Container component="article" sx={{ mt: 6, mb: 4}} maxWidth="lg" >
+        <ControlledTabsExample></ControlledTabsExample>
       </Container>
       <Box
         component="footer"
+        className="footer"
         sx={{
           
           py: 3,
@@ -55,5 +59,7 @@ export default function App() {
         </Container>
       </Box>
     </Box>
+
+    </div>
   );
 }

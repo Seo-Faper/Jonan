@@ -9,26 +9,7 @@ import { Tooltip } from 'bootstrap';
 // no chart will be rendered.
 // website examples showcase many properties,
 // you'll often use just a few of them.
-const CustomTooltip = (point)=>{
-    console.log(point);
-    let cell = point.cell;
-    let styleValue = {
-        width:'auto',
-        maxHeight: '200px',
-        color: '#000000',
-        marginBottom: '20px',
-        padding: '10px',
-        border:`2px solid ${cell.color}`,
-        borderRadius : '5px',
-        backgroundColor: cell.color,
-    }
-    var fontSize = {fontSize: '12px'}
-    return(
-        <div style={styleValue}>
-             <span  style={fontSize}>등급</span>
-        </div>
-    )
-};
+
 const RadarChart = (e) => {
     const rank = {0:'F',1:'B',2:'A',3:'S',4:'OP'}
     return(

@@ -20,7 +20,7 @@ function OffcanvasExample() {
               width="30"
               height="30"
               className="d-inline-block align-top"
-            />{' '}
+            />{'  '}
             크퀘 도감
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />

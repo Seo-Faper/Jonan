@@ -22,43 +22,19 @@ function MyVerticallyCenteredModal(props) {
         </Modal.Header>
         <Modal.Body >
         <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={2}>
-            <Grid item xs={4}>
+        <Grid container spacing={1} sx={{justifyContent:"center"}}>
+            <div style={{display:"flex"}}>
+                <Item>
                 <img src="https://raw.githubusercontent.com/cq-pandora/assets/master/portraits/portrait_hikari_default.png" width="250px"></img>
                 
-            </Grid>
-            <Grid item xs={8}>
-                <RaderChart data={json_data.data}></RaderChart>
-            </Grid>
-        </Grid>
-        <Grid container spacing={2}>
-            <Grid item xs={4}>
+                </Item>
                 <Item>
-                <div style={{display:"flex"}}>
-                   <img src="https://raw.githubusercontent.com/cq-pandora/assets/master/weapons/bo_s6_07.png" width="75px"></img>
-                   <div style={{display:"grid", paddingLeft:5}}>
-                   <img src="https://raw.githubusercontent.com/cq-pandora/assets/master/sigils/ui_item_stone_5_unique_28.png" width="30" height="30"></img>
-                   <img src="https://raw.githubusercontent.com/cq-pandora/assets/master/sigils/ui_item_stone_5_unique_34.png" width="30" height="30"></img>
-                   </div>
-                </div>
-                
+                  <RaderChart data={json_data.data}></RaderChart>
                 </Item>
                 
-            </Grid>
-
-            <Grid item xs={8}>
-                <Item>
-                   <b>무기 옵션 : </b> 공기(치피, 치확) or 기기(공속, 공속)
-                </Item>
-                <Item>
-                    <b>반지 옵션 (주 옵션 / 부 옵션):</b> 치피 , 치확 / 저관, 명중, 공속 
-                </Item>
-                <Item>
-                    <b>목걸이 / 귀걸이 옵션 :</b> 특생, 공뻥, 공보, 공혈
-                </Item>
-            </Grid>
-        </Grid>
-        
+            </div>
+          
+          </Grid>
         </Box>
         <hr></hr>
         <Container>

@@ -9,10 +9,11 @@ import { ResponsiveRadar } from '@nivo/radar'
 // no chart will be rendered.
 // website examples showcase many properties,
 // you'll often use just a few of them.
-const rank = {1:'F',2:'B',3:'A',4:'S',5:'OP'}
+
 
 const tooltip = (props)=>{
    // console.log(props.data[0])
+   const rank = {1:'F',2:'B',3:'A',4:'S',5:'OP'}
    const colors = {'F':'gray','B':'green','A':'red','S':'orange','OP':'black'}
     let tier = props.data[0].value;
     let color = colors[rank[tier]];

@@ -34,7 +34,7 @@ export default function App() {
     >
       <OffcanvasExample></OffcanvasExample>
       <CssBaseline />
-      <Container component="article" sx={{ mt: 6, mb: 4}} maxWidth="lg" >
+      <Container component="article" sx={{ mt: 5}} maxWidth="lg">
         <ControlledTabsExample></ControlledTabsExample>
       </Container>
       <Box

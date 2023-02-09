@@ -1,9 +1,9 @@
 import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
+import Container from '@mui/material/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+
 
 
 const expand = "sm";
@@ -11,8 +11,9 @@ function OffcanvasExample() {
 
   return (
     <>
+        <div >
         <Navbar bg="dark" variant="dark">
-        <Container>
+        <Container sx={{display:"flex"}}>
           <Navbar.Brand href="#home">
             <img
               alt=""
@@ -116,6 +117,7 @@ function OffcanvasExample() {
         </Navbar.Collapse>
         </Container>
       </Navbar>
+      </div>
     </>
   );
 }

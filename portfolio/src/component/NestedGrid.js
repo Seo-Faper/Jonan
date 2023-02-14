@@ -10,7 +10,6 @@ import json_data from "../res/heroTier.json";
 import RaderChart from "./RadarChart";
 import Badge from "react-bootstrap/Badge";
 import Container from "react-bootstrap/esm/Container";
-import { Typography } from "@mui/material";
 function MyVerticallyCenteredModal(props) {
   return (
     <Modal {...props} size="lg">
@@ -24,10 +23,14 @@ function MyVerticallyCenteredModal(props) {
           <Grid container spacing={1} sx={{ justifyContent: "center" }}>
             <div style={{ display: "flex" }}>
               <Item>
+                <div>
                 <img
                   src="https://raw.githubusercontent.com/cq-pandora/assets/master/portraits/portrait_hikari_default.png"
                   width="250px"
                 ></img>
+
+                </div>
+
               </Item>
               <Item>
                 <RaderChart data={json_data.data}></RaderChart>
@@ -37,8 +40,28 @@ function MyVerticallyCenteredModal(props) {
         </Box>
         <hr></hr>
         <Container>
-          <Item>각인석 :</Item>
-          <Typography>?</Typography>
+          <Grid container spacing={1}>
+          <Item>
+            <div style={{display:"flex"}}>
+
+             <img src="https://raw.githubusercontent.com/cq-pandora/assets/master/weapons/bo_s6_07.png" width={"100"}></img> 
+                <div style={{display:"grid"}}>
+                  <img src="https://raw.githubusercontent.com/cq-pandora/assets/master/sigils/ui_item_stone_5_set_13.png"></img>
+                  <img src="https://raw.githubusercontent.com/cq-pandora/assets/master/sigils/ui_item_stone_5_unique_28.png"></img>
+                  </div>
+                <div style={{display:"grid"}}>
+                  <img src="https://raw.githubusercontent.com/cq-pandora/assets/master/rings/new_ring_crit_dmg_6.png"></img>
+                  <img src="https://raw.githubusercontent.com/cq-pandora/assets/master/skills/ui_skill_icon_archer_fastshot_spirit.png" width={"45"}></img>
+                </div>
+                              
+            </div>
+          </Item>
+          <Item>
+            <h3>데미지 타입</h3>
+          <h4><Badge bg="primary">마법</Badge>{" "}</h4>
+          </Item>
+          </Grid>
+        
         </Container>
       </Modal.Body>
       <Modal.Footer>

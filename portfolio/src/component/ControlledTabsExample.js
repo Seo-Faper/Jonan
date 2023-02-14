@@ -12,13 +12,21 @@ const classData = {"워리어":"ui_icon_classlabel_warrior_01.png",
                    "헌터": "ui_icon_classlabel_hunter_01.png",
                    "위자드":"ui_icon_classlabel_wizard_01.png"
                   };
+const classColor = {"워리어":"red",
+"팔라딘": "blue",
+"아처": "green",
+"헌터": "orange",
+"위자드":"purple"
+};
 const setTitle = (title) =>{
   let url = "https://raw.githubusercontent.com/cq-pandora/assets/master/common/"+classData[title];
   return (
     <div>
+      <h6 style={{color:classColor[title]}}>{title}
     <img src={url}
     height="22"
     width="18"></img>
+    </h6>
     </div>
   );
 }

@@ -53,7 +53,7 @@ export default function App() {
       >
         <Container maxWidth="sm">
           <Typography variant="body1">
-            Powered by github Page
+            Powered by github Page / Definitely Original CQ Tierlist
           </Typography>
           <Copyright />
         </Container>

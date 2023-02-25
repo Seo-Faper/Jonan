@@ -72,6 +72,15 @@ function MyVerticallyCenteredModal(props) {
                   <Badge bg="danger">적 넉백</Badge>{" "}
                 </h4>
               </Item>
+              <Item>
+                <Typography variant="h6">같이 쓰는 용사</Typography>
+                <div style={{display:"flex"}}>
+                <Port></Port>
+                <Port></Port>
+                <Port></Port>
+                </div>
+              
+              </Item>
             </Grid>
           </Container>
         </Modal.Body>

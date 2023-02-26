@@ -73,7 +73,7 @@ function MyVerticallyCenteredModal(props) {
                 </h4>
               </Item>
               <Item>
-                <Typography variant="h6">같이 쓰는 용사</Typography>
+                <Typography variant="h6">같이 쓰는 용사 Top 3</Typography>
                 <div style={{display:"flex"}}>
                 <Port></Port>
                 <Port></Port>

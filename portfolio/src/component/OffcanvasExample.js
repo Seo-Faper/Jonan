@@ -15,7 +15,7 @@ function OffcanvasExample() {
         <Navbar bg="dark" variant="dark">
         <Container sx={{display:"flex"}}>
           <Navbar.Brand href="#home">
-            <img
+            <img 
               alt=""
               src="https://raw.githubusercontent.com/cq-pandora/assets/master/common/ui_btn_house_ui_hide.png"
               width="30"

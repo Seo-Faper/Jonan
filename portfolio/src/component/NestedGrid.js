@@ -6,7 +6,12 @@ import Grid from "@mui/material/Grid";
 import Button from "react-bootstrap/Button";
 import "../css/hero.css";
 import Modal from "react-bootstrap/Modal";
+
 import json_data from "../res/heroTier.json";
+import general from "../res/general.json";
+import sigils_Effect from "../res/sigils_Effect.json";
+import urlMapping from "../res/urlMapping.json";
+
 import RaderChart from "./RadarChart";
 import Badge from "react-bootstrap/Badge";
 import Container from "react-bootstrap/esm/Container";
@@ -14,12 +19,15 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 
 function MyVerticallyCenteredModal(props) {
+  const ringMapping = {"치확":"치명타확률 + 34.5%", "저관":"저항 관통력"}
+  const hero = props.heroInfo;
+  console.log(hero)
   return (
     <ThemeProvider theme={theme}>
       <Modal {...props} size="lg">
         <Modal.Header closeButton>
           <h4>
-            백발백중 히카리 <Badge bg="danger">★OP</Badge>{" "}
+            <Badge bg="danger">★OP</Badge>{" "}{hero['fullName']}
           </h4>
         </Modal.Header>
         <Modal.Body>
@@ -29,13 +37,13 @@ function MyVerticallyCenteredModal(props) {
                 <Item>
                   <div>
                     <img
-                      src="https://raw.githubusercontent.com/cq-pandora/assets/master/portraits/portrait_hikari_default.png"
+                      src={"https://raw.githubusercontent.com/cq-pandora/assets/master/portraits/"+urlMapping[hero['name']].port}
                       width="250px"
                     ></img>
                   </div>
                 </Item>
                 <Item>
-                  <RaderChart data={json_data.data}></RaderChart>
+                  <RaderChart data={hero.data}></RaderChart>
                 </Item>
               </div>
             </Grid>
@@ -45,18 +53,37 @@ function MyVerticallyCenteredModal(props) {
             <Grid container spacing={1}>
               <Item>
                 <div style={{ display: "flex" }}>
-                  <img
-                    src="https://raw.githubusercontent.com/cq-pandora/assets/master/weapons/bo_s6_07.png"
+                  <div className="sigils"style={{ display: "flex" }}>
+                  <img 
+                    src={"https://raw.githubusercontent.com/cq-pandora/assets/master/weapons/"+urlMapping[hero['weapon'][0]['name']]}
                     width={"100"}
                   ></img>
-                  <div style={{ display: "grid" }}>
-                    <img src="https://raw.githubusercontent.com/cq-pandora/assets/master/sigils/ui_item_stone_5_set_13.png"></img>
-                    <img src="https://raw.githubusercontent.com/cq-pandora/assets/master/sigils/ui_item_stone_5_unique_28.png"></img>
+                      <div className="sigilsInfo">
+                      <p>{hero['sigils']}</p>
+                      <span>{sigils_Effect[hero['sigils']]['세트 효과']}</span><br></br>
+
+                      <span>{sigils_Effect[hero['weapon'][0]['option1']]}</span><br></br>
+                      <span>{sigils_Effect[hero['weapon'][0]['option2']]}</span>
+                    </div>
+                  <div style={{ display: "grid" }}> 
+                    <img src={"https://raw.githubusercontent.com/cq-pandora/assets/master/sigils/"+urlMapping[sigils_Effect[hero['sigils']]['sig1']]}></img>
+                    <img  src={"https://raw.githubusercontent.com/cq-pandora/assets/master/sigils/"+urlMapping[sigils_Effect[hero['sigils']]['sig2']]}></img>
+
+
                   </div>
-                  <div style={{ display: "grid" }}>
-                    <img src="https://raw.githubusercontent.com/cq-pandora/assets/master/rings/new_ring_crit_dmg_6.png"></img>
+                  </div>
+                  <div style={{ display: "grid" }}> 
+                    <div className="ring"><img src={"https://raw.githubusercontent.com/cq-pandora/assets/master/rings/"+urlMapping[hero['ring'][0]]}></img>
+                    <div className="ringInfo">
+
+                      <p>{hero['ring'][0]}</p>
+                      <span>{ringMapping[hero['ring'][1]]}</span> <br></br>
+                      <span>{ringMapping[hero['ring'][2]]}</span>
+                      </div>
+                    </div>
                     <img
-                      src="https://raw.githubusercontent.com/cq-pandora/assets/master/skills/ui_skill_icon_archer_fastshot_spirit.png"
+                      className="skill"
+                      src={"https://raw.githubusercontent.com/cq-pandora/assets/master/skills/"+urlMapping[hero['skill']]}
                       width={"45"}
                     ></img>
                   </div>
@@ -65,12 +92,16 @@ function MyVerticallyCenteredModal(props) {
               <Item>
                 <Typography variant="h6">데미지 타입 / 메커니즘</Typography>
                 <h4>
-                  <Badge bg="primary">마법</Badge>{" "}
-                  <Badge bg="primary">평타 기반</Badge>{" "}
+                {Array.from(hero['DamageType']).map((i, index) => (
+                  <Badge bg="primary">{i}</Badge> 
+                  
+                  ))}
                 </h4>
-                <h4>
-                  <Badge bg="danger">적 넉백</Badge>{" "}
-                </h4>
+                <h5>
+                {Array.from(hero['Function']).map((i, index) => (
+                  <Badge bg="success">{i}</Badge> 
+                  ))}
+                </h5>
               </Item>
               <Item>
                 <Typography variant="h6">같이 쓰는 용사 Top 3</Typography>
@@ -102,7 +133,7 @@ const Item = styled(Paper)(({ theme }) => ({
 const Port = styled(Paper)(({ theme }) => ({
   backgroundColor: "#9c9074",
   margin: 6,
-
+  cursor: "pointer",
   textAlign: "center",
   height: 140,
   width: 100,
@@ -123,27 +154,34 @@ theme.typography.h6 = {
 };
 export default function ResponsiveGrid() {
   const [modalShow, setModalShow] = React.useState(false);
+  const [modalInfo, setModalInfo] = React.useState({});
+  
+  const data = general.heros;
+  const clickHandler = (params, e)=>{
+    setModalShow(true)
+    setModalInfo(params)
+  }
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid container sx={{ justifyContent: "left" }}>
-        {Array.from(Array(1)).map((_, index) => (
+        {Array.from(data).map((hero, index) => (
           <Grid key={index} spacing={2}>
-            <Port onClick={() => setModalShow(true)}>
+            <Port onClick={(e) => {clickHandler(hero, e)}}>
               <div id="HeroCase">
                 <div id="HeroCard">
                   <img
-                    src="https://raw.githubusercontent.com/cq-pandora/assets/master/common/ui_icon_scroll_mini_03(x1).png" // 계승 , 승급 , 한정 구분
+                    src={"https://raw.githubusercontent.com/cq-pandora/assets/master/common/"+urlMapping[hero['scrollType']]}
                     width={"32px"}
                   ></img>
                 </div>
                 <img
-                  src="https://raw.githubusercontent.com/Seo-Faper/cq_assets/master/heroes/cos_ar_7_1.png" //용사 아이콘
+                  src={"https://raw.githubusercontent.com/Seo-Faper/cq_assets/master/heroes/"+urlMapping[hero['name']].dot} //용사 아이콘
                 ></img>
                 <br></br>
                 <strong>
                   히카리
                   <img
-                    src="https://raw.githubusercontent.com/cq-pandora/assets/master/common/ui_classlabel_mini_3_archer.png" // 클래스 아이콘
+                    src={"https://raw.githubusercontent.com/cq-pandora/assets/master/common/"+urlMapping[hero['class']]} // 클래스 아이콘
                     width={"32px"}
                   ></img>
                 </strong>
@@ -153,6 +191,7 @@ export default function ResponsiveGrid() {
         ))}
       </Grid>
       <MyVerticallyCenteredModal
+        heroInfo = {modalInfo}
         show={modalShow}
         onHide={() => setModalShow(false)}
         dialogClassName="modal-90w"

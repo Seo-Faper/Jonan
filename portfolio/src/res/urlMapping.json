@@ -1,0 +1,17 @@
+{
+	"히카리":{"dot":"cos_ar_7_1.png",
+			"port":"portrait_hikari_default.png"},
+
+	"패궁": "bo_s6_07.png",
+	
+	"제우스의 섬광":"new_ring_crit_dmg_6.png",
+    
+	"속사의 혼":"ui_skill_icon_archer_fastshot_spirit.png",
+	
+	"황금 갑옷 파편":"ui_item_stone_5_set_13.png",
+	"황금 경험":"ui_item_stone_5_unique_28.png",
+
+	"계약 전용":"ui_icon_scroll_mini_03(x1).png",
+
+	"아처":"ui_classlabel_mini_3_archer.png"
+}

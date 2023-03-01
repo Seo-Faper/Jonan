@@ -8,3 +8,56 @@
 #HeroProfile{
     display: block;
 }
+
+.sigils:hover .sigilsInfo{
+    display: block;
+    position: absolute;
+
+
+}
+.sigilsInfo{
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+    width: 300px;
+    height: 150px;  
+    display: none;
+
+
+}
+.sigilsInfo p{
+    color: white;
+    font-size: 20px;
+
+}
+.sigilsInfo span{
+    color: aliceblue;
+    font-size: 15px;
+}
+
+.ring:hover .ringInfo{
+    display: block;
+    position: absolute;
+
+
+}
+.ringInfo{
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10%;
+    width: 150px;
+    height: 150px;  
+    display: none;
+
+
+}
+.ringInfo p{
+    color: white;
+    font-size: 20px;
+
+}
+.ringInfo span{
+    color: aliceblue;
+    font-size: 15px;
+}
+hr{
+    padding: 0px;
+}

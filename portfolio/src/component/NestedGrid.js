@@ -7,7 +7,6 @@ import Button from "react-bootstrap/Button";
 import "../css/hero.css";
 import Modal from "react-bootstrap/Modal";
 
-import json_data from "../res/heroTier.json";
 import general from "../res/general.json";
 import sigils_Effect from "../res/sigils_Effect.json";
 import urlMapping from "../res/urlMapping.json";
@@ -37,6 +36,7 @@ function MyVerticallyCenteredModal(props) {
                 <Item>
                   <div>
                     <img
+                      alt="port"
                       src={"https://raw.githubusercontent.com/cq-pandora/assets/master/portraits/"+urlMapping[hero['name']].port}
                       width="250px"
                     ></img>
@@ -55,6 +55,7 @@ function MyVerticallyCenteredModal(props) {
                 <div style={{ display: "flex" }}>
                   <div className="sigils"style={{ display: "flex" }}>
                   <img 
+                  alt="sigils"
                     src={"https://raw.githubusercontent.com/cq-pandora/assets/master/weapons/"+urlMapping[hero['weapon'][0]['name']]}
                     width={"100"}
                   ></img>
@@ -66,14 +67,14 @@ function MyVerticallyCenteredModal(props) {
                       <span>{sigils_Effect[hero['weapon'][0]['option2']]}</span>
                     </div>
                   <div style={{ display: "grid" }}> 
-                    <img src={"https://raw.githubusercontent.com/cq-pandora/assets/master/sigils/"+urlMapping[sigils_Effect[hero['sigils']]['sig1']]}></img>
-                    <img  src={"https://raw.githubusercontent.com/cq-pandora/assets/master/sigils/"+urlMapping[sigils_Effect[hero['sigils']]['sig2']]}></img>
+                    <img alt="sig1" src={"https://raw.githubusercontent.com/cq-pandora/assets/master/sigils/"+urlMapping[sigils_Effect[hero['sigils']]['sig1']]}></img>
+                    <img  alt = "sig2" src={"https://raw.githubusercontent.com/cq-pandora/assets/master/sigils/"+urlMapping[sigils_Effect[hero['sigils']]['sig2']]}></img>
 
 
                   </div>
                   </div>
                   <div style={{ display: "grid" }}> 
-                    <div className="ring"><img src={"https://raw.githubusercontent.com/cq-pandora/assets/master/rings/"+urlMapping[hero['ring'][0]]}></img>
+                    <div className="ring"><img alt="ring" src={"https://raw.githubusercontent.com/cq-pandora/assets/master/rings/"+urlMapping[hero['ring'][0]]}></img>
                     <div className="ringInfo">
 
                       <p>{hero['ring'][0]}</p>
@@ -82,6 +83,7 @@ function MyVerticallyCenteredModal(props) {
                       </div>
                     </div>
                     <img
+                    alt="skill"
                       className="skill"
                       src={"https://raw.githubusercontent.com/cq-pandora/assets/master/skills/"+urlMapping[hero['skill']]}
                       width={"45"}
@@ -157,6 +159,7 @@ export default function ResponsiveGrid() {
   const [modalInfo, setModalInfo] = React.useState({});
   
   const data = general.heros;
+  console.log(data);
   const clickHandler = (params, e)=>{
     setModalShow(true)
     setModalInfo(params)
@@ -170,17 +173,20 @@ export default function ResponsiveGrid() {
               <div id="HeroCase">
                 <div id="HeroCard">
                   <img
+                    alt="scrollType"
                     src={"https://raw.githubusercontent.com/cq-pandora/assets/master/common/"+urlMapping[hero['scrollType']]}
                     width={"32px"}
                   ></img>
                 </div>
                 <img
+                alt="dot"
                   src={"https://raw.githubusercontent.com/Seo-Faper/cq_assets/master/heroes/"+urlMapping[hero['name']].dot} //용사 아이콘
                 ></img>
                 <br></br>
                 <strong>
                   히카리
                   <img
+                  alt="class"
                     src={"https://raw.githubusercontent.com/cq-pandora/assets/master/common/"+urlMapping[hero['class']]} // 클래스 아이콘
                     width={"32px"}
                   ></img>
